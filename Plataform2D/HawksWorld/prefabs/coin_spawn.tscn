@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c36qnpvh5xjs2"]
+
+[ext_resource type="PackedScene" uid="uid://clq1885q124vy" path="res://prefabs/coin.tscn" id="1_i2awb"]
+[ext_resource type="Script" path="res://scripts/coin_spawn.gd" id="1_x147k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdlrg"]
+size = Vector2(32, 20)
+
+[node name="coin_spawn" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_x147k")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -7)
+shape = SubResource("RectangleShape2D_kdlrg")
+
+[node name="coin" parent="." instance=ExtResource("1_i2awb")]
+
+[connection signal="tree_exited" from="coin" to="." method="_on_coin_tree_exited"]

@@ -1,0 +1,5 @@
+res://background/Background_Grassland/background.tscn
+res://terrain/Grassland/terrain.tscn
+res://levels/base_level.tscn
+res://levels/world_1.tscn
+res://character/Big Red/character.tscn

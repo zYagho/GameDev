@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://j18ie0ss1byb"]
+
+[ext_resource type="PackedScene" uid="uid://ygbwi24oas3g" path="res://assets/visual_effects/components/base_effect.tscn" id="1_urfeh"]
+[ext_resource type="Texture2D" uid="uid://c2dm18ved1jb1" path="res://assets/visual_effects/sword/air_attack_2/1.png" id="2_nng5l"]
+[ext_resource type="Texture2D" uid="uid://dhi1bo31nom6c" path="res://assets/visual_effects/sword/air_attack_2/2.png" id="3_6olhh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tgobf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nng5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6olhh")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="AirAttack2" instance=ExtResource("1_urfeh")]
+sprite_frames = SubResource("SpriteFrames_tgobf")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://k58puhunshn0"]
+
+[ext_resource type="PackedScene" uid="uid://bwvifmq0begt8" path="res://levels/base_level.tscn" id="1_4l8fh"]
+[ext_resource type="PackedScene" uid="uid://cqt0eplxmuh6y" path="res://assets/collectables/sword/collectable_sword.tscn" id="2_13xci"]
+[ext_resource type="PackedScene" uid="uid://cxkohhwlf52qg" path="res://assets/entities/pink_star/pink_star.tscn" id="3_bujtk"]
+
+[node name="island_level" instance=ExtResource("1_4l8fh")]
+position = Vector2(-13, -14)
+
+[node name="terrain" parent="." index="0"]
+layer_0/tile_data = PackedInt32Array(524290, 0, 0, 589826, 0, 1, 655362, 0, 2, 655363, 65536, 2, 655364, 65536, 2, 655365, 65536, 2, 655366, 65536, 2, 655367, 65536, 2, 655368, 131072, 2, 589832, 131072, 1, 524296, 131072, 0, 524295, 65536, 0, 524294, 65536, 0, 524293, 65536, 0, 524292, 65536, 0, 524291, 65536, 0, 589827, 65536, 1, 589828, 65536, 1, 589829, 65536, 1, 589830, 65536, 1, 589831, 65536, 1, 524300, 0, 0, 524301, 65536, 0, 524302, 65536, 0, 524303, 65536, 0, 524304, 65536, 0, 524305, 65536, 0, 524306, 65536, 0, 524307, 65536, 0, 524308, 131072, 0, 589844, 131072, 1, 655380, 131072, 2, 655379, 65536, 2, 655378, 65536, 2, 655377, 65536, 2, 655376, 65536, 2, 655375, 65536, 2, 655374, 65536, 2, 655373, 65536, 2, 589837, 65536, 1, 589836, 0, 1, 655372, 0, 2, 589843, 65536, 1, 589842, 65536, 1, 589841, 65536, 1, 589840, 65536, 1, 589839, 65536, 1, 589838, 65536, 1, 524298, 262144, 0, 589834, 262144, 1, 655370, 262144, 2)
+
+[node name="background" parent="." index="1"]
+visible = false
+
+[node name="PinkStar" parent="Enemies" index="0" instance=ExtResource("3_bujtk")]
+position = Vector2(504, 202)
+
+[node name="CollectableSword" parent="." index="3" instance=ExtResource("2_13xci")]
+position = Vector2(336, 237)
+rotation = 1.5708
+
+[node name="player" parent="." index="4"]
+position = Vector2(111, 236)

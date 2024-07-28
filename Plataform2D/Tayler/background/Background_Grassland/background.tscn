@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://d21lga4rkq8jx"]
+
+[ext_resource type="Script" path="res://background/Background_Grassland/background.gd" id="1_tfa1o"]
+[ext_resource type="Texture2D" uid="uid://cai0xmr01ud3i" path="res://background/Background_Grassland/5 - Sky_color.png" id="2_gx0lc"]
+[ext_resource type="Texture2D" uid="uid://b3w0euqjxpcr6" path="res://background/Background_Grassland/4 - Cloud_cover_2.png" id="3_jxwfs"]
+[ext_resource type="Texture2D" uid="uid://d1nku0qo04822" path="res://background/Background_Grassland/3 - Cloud_cover_1.png" id="4_xexr5"]
+[ext_resource type="Texture2D" uid="uid://d4emfr1phi6f3" path="res://background/Background_Grassland/2 - Hills.png" id="5_ppuxv"]
+[ext_resource type="Texture2D" uid="uid://ca2jigrhhfjm5" path="res://background/Background_Grassland/1 - Foreground_scenery.png" id="6_5iy43"]
+
+[node name="background" type="ParallaxBackground"]
+script = ExtResource("1_tfa1o")
+
+[node name="sky" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(640, 0)
+
+[node name="texture" type="TextureRect" parent="sky"]
+custom_minimum_size = Vector2(640, 360)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_gx0lc")
+
+[node name="cloud_cover_2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1, 0.1)
+motion_mirroring = Vector2(640, 0)
+
+[node name="texture" type="TextureRect" parent="cloud_cover_2"]
+custom_minimum_size = Vector2(640, 360)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_jxwfs")
+
+[node name="cloud_cover_1" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(640, 0)
+
+[node name="texture" type="TextureRect" parent="cloud_cover_1"]
+custom_minimum_size = Vector2(640, 360)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_xexr5")
+
+[node name="hills" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(640, 0)
+
+[node name="texture" type="TextureRect" parent="hills"]
+custom_minimum_size = Vector2(640, 360)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_ppuxv")
+
+[node name="foreground" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(640, 0)
+
+[node name="texture" type="TextureRect" parent="foreground"]
+custom_minimum_size = Vector2(640, 360)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_5iy43")

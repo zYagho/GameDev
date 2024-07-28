@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1s8txsxeg5b1"]
+
+[ext_resource type="PackedScene" uid="uid://ygbwi24oas3g" path="res://assets/visual_effects/components/base_effect.tscn" id="1_0i71y"]
+[ext_resource type="Texture2D" uid="uid://jqswqopxm2g2" path="res://assets/visual_effects/sword/attack_3/1.png" id="2_fv7jr"]
+[ext_resource type="Texture2D" uid="uid://dbtn3fj0ou1xh" path="res://assets/visual_effects/sword/attack_3/2.png" id="3_qcl6y"]
+[ext_resource type="Texture2D" uid="uid://bxncis4vpedi5" path="res://assets/visual_effects/sword/attack_3/3.png" id="4_lb17j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4bq5e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fv7jr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qcl6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lb17j")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Attack3" instance=ExtResource("1_0i71y")]
+sprite_frames = SubResource("SpriteFrames_4bq5e")

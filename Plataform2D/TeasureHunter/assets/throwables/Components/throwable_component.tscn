@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1p7f5c0ydwdt"]
+
+[ext_resource type="Script" path="res://assets/throwables/Components/throwable_component.gd" id="1_nehen"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kanh7"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="ThrowableComponent" type="Area2D"]
+script = ExtResource("1_nehen")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+
+[node name="texture" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kanh7")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

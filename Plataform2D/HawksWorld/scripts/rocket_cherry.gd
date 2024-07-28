@@ -1,0 +1,9 @@
+extends Enemy_Base
+
+@onready var spawn_enemy = $"../spawn_enemy"
+
+func _ready():
+	spawn_instance = preload("res://actors/cherry.tscn")
+	spawn_intance_position = spawn_enemy
+	can_spawn = true
+	anim.animation_finished.connect(kill_air_enemy)

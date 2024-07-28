@@ -1,0 +1,6 @@
+res://levels/island_level.tscn
+res://assets/entities/components/base_enemy.tscn
+res://assets/entities/pink_star/pink_star.tscn
+res://assets/character/player.tscn
+res://assets/background/background.tscn
+res://levels/base_level.tscn

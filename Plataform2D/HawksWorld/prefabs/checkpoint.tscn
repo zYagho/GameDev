@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3 uid="uid://cjwd4hw51qrrn"]
+
+[ext_resource type="Script" path="res://scripts/checkpoint.gd" id="1_qe3lu"]
+[ext_resource type="Texture2D" uid="uid://bewrdno8faf6o" path="res://assets/assets_extras/checkpoint.png" id="1_r2wyd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ui03y"]
+atlas = ExtResource("1_r2wyd")
+region = Rect2(108, 0, 18, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xp14q"]
+atlas = ExtResource("1_r2wyd")
+region = Rect2(90, 0, 18, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2ffm"]
+atlas = ExtResource("1_r2wyd")
+region = Rect2(18, 0, 18, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2ma8"]
+atlas = ExtResource("1_r2wyd")
+region = Rect2(36, 0, 18, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkxjy"]
+atlas = ExtResource("1_r2wyd")
+region = Rect2(54, 0, 18, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bin6h"]
+atlas = ExtResource("1_r2wyd")
+region = Rect2(72, 0, 18, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3n28k"]
+atlas = ExtResource("1_r2wyd")
+region = Rect2(0, 0, 18, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qeji0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ui03y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xp14q")
+}],
+"loop": true,
+"name": &"checked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2ffm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2ma8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkxjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bin6h")
+}],
+"loop": false,
+"name": &"raising",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3n28k")
+}],
+"loop": false,
+"name": &"unchecked",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2gfu"]
+size = Vector2(18, 27)
+
+[node name="checkpoint" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_qe3lu")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -13)
+sprite_frames = SubResource("SpriteFrames_qeji0")
+animation = &"checked"
+autoplay = "unchecked"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -13.5)
+shape = SubResource("RectangleShape2D_k2gfu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

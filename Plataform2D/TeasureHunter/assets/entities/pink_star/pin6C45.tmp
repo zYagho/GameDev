@@ -1,0 +1,119 @@
+[gd_scene load_steps=22 format=3 uid="uid://cxkohhwlf52qg"]
+
+[ext_resource type="PackedScene" uid="uid://bfjy8i3curhoi" path="res://assets/entities/components/base_enemy.tscn" id="1_bwwti"]
+[ext_resource type="Texture2D" uid="uid://bvjv7yviqc666" path="res://assets/entities/pink_star/idle/1.png" id="2_12qus"]
+[ext_resource type="Texture2D" uid="uid://ber7e3wyfar17" path="res://assets/entities/pink_star/fall/1.png" id="2_qycrq"]
+[ext_resource type="Texture2D" uid="uid://cunui0tb7d4lw" path="res://assets/entities/pink_star/idle/2.png" id="3_pgfli"]
+[ext_resource type="Texture2D" uid="uid://ksrbnuguk1l8" path="res://assets/entities/pink_star/idle/3.png" id="4_ucyk3"]
+[ext_resource type="Texture2D" uid="uid://t2bslihihuet" path="res://assets/entities/pink_star/idle/4.png" id="5_1lasg"]
+[ext_resource type="Texture2D" uid="uid://sd23at6x1kic" path="res://assets/entities/pink_star/idle/5.png" id="6_qph1g"]
+[ext_resource type="Texture2D" uid="uid://bi0c1pd8rsrtc" path="res://assets/entities/pink_star/idle/6.png" id="7_yehbw"]
+[ext_resource type="Texture2D" uid="uid://dygx6qog4lhmi" path="res://assets/entities/pink_star/idle/7.png" id="8_8pgjo"]
+[ext_resource type="Texture2D" uid="uid://bp4qybux5u4oq" path="res://assets/entities/pink_star/idle/8.png" id="9_h8leu"]
+[ext_resource type="Texture2D" uid="uid://4ia481mdbcb0" path="res://assets/entities/pink_star/jump/1.png" id="11_l20oo"]
+[ext_resource type="Texture2D" uid="uid://p6nfkq8hauqa" path="res://assets/entities/pink_star/jump/2.png" id="12_spmnq"]
+[ext_resource type="Texture2D" uid="uid://catfkvad8wum3" path="res://assets/entities/pink_star/jump/3.png" id="13_l4xnu"]
+[ext_resource type="Texture2D" uid="uid://b48ssj2brxh6k" path="res://assets/entities/pink_star/run/1.png" id="14_b5nnl"]
+[ext_resource type="Texture2D" uid="uid://bagr427uxqfgb" path="res://assets/entities/pink_star/run/2.png" id="15_vhm60"]
+[ext_resource type="Texture2D" uid="uid://bh7wq0vubgfqt" path="res://assets/entities/pink_star/run/3.png" id="16_0ffej"]
+[ext_resource type="Texture2D" uid="uid://b32ukxadkh1qm" path="res://assets/entities/pink_star/run/4.png" id="17_jtht0"]
+[ext_resource type="Texture2D" uid="uid://brub6refcs6iu" path="res://assets/entities/pink_star/run/5.png" id="18_g67bv"]
+[ext_resource type="Texture2D" uid="uid://cjq55p36pryfs" path="res://assets/entities/pink_star/run/6.png" id="19_1p0og"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ls141"]
+size = Vector2(17, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8hhcu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qycrq")
+}],
+"loop": false,
+"name": &"fall",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_12qus")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pgfli")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ucyk3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1lasg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qph1g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yehbw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8pgjo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_h8leu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_l20oo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_spmnq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_l4xnu")
+}],
+"loop": false,
+"name": &"jum",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"land",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_b5nnl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_vhm60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_0ffej")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_jtht0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_g67bv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_1p0og")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[node name="PinkStar" instance=ExtResource("1_bwwti")]
+collision_mask = 2
+_enemy_type = 2
+
+[node name="collision" parent="." index="0"]
+position = Vector2(0.5, 2.5)
+shape = SubResource("RectangleShape2D_ls141")
+
+[node name="texture" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_8hhcu")
+animation = &"run"
+autoplay = "idle"

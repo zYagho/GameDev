@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfjy8i3curhoi"]
+
+[ext_resource type="Script" path="res://assets/entities/components/base_enemy.gd" id="1_6xygi"]
+[ext_resource type="Script" path="res://assets/entities/components/enemy_texture.gd" id="2_2k3y8"]
+[ext_resource type="Script" path="res://assets/entities/components/enemy_attack_area.gd" id="3_ncmu0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kmkyg"]
+
+[node name="BaseEnemy" type="CharacterBody2D" node_paths=PackedStringArray("_enemy_texture", "_floor_detection")]
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_6xygi")
+_enemy_texture = NodePath("texture")
+_floor_detection = NodePath("floorDetection")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+
+[node name="texture" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("_enemy")]
+sprite_frames = SubResource("SpriteFrames_kmkyg")
+script = ExtResource("2_2k3y8")
+_enemy = NodePath("..")
+
+[node name="floorDetection" type="RayCast2D" parent="."]
+target_position = Vector2(0, 16)
+collision_mask = 2
+
+[node name="attack_area" type="Area2D" parent="."]
+script = ExtResource("3_ncmu0")
+
+[node name="collision" type="CollisionShape2D" parent="attack_area"]
+
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="detection_area"]
+
+[connection signal="animation_finished" from="texture" to="texture" method="_on_animation_finished"]
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

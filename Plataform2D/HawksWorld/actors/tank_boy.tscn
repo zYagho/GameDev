@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://ra2vi0vu7vdh"]
+
+[ext_resource type="Script" path="res://scripts/tank_boy.gd" id="1_8g6c5"]
+[ext_resource type="Texture2D" uid="uid://taa8t7pbafu1" path="res://assets/Sprite Pack 2/8 - Comrade Cheese Puff/Tank_Movement (32 x 32).png" id="1_ottf2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k325n"]
+size = Vector2(27, 19)
+
+[sub_resource type="Animation" id="Animation_a85uh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_a8iew"]
+resource_name = "moving"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yp0m5"]
+_data = {
+"RESET": SubResource("Animation_a85uh"),
+"moving": SubResource("Animation_a8iew")
+}
+
+[node name="tankBoy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_8g6c5")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -9.5)
+shape = SubResource("RectangleShape2D_k325n")
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(1, -16)
+texture = ExtResource("1_ottf2")
+hframes = 11
+
+[node name="missel_point" type="Marker2D" parent="sprite"]
+position = Vector2(-1, 7)
+
+[node name="bomb_point" type="Marker2D" parent="sprite"]
+position = Vector2(-1, -1)
+
+[node name="anim_tree" type="AnimationTree" parent="."]
+
+[node name="anim_player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yp0m5")
+}
+autoplay = "moving"
+
+[node name="bomb_cooldown" type="Timer" parent="."]
+
+[node name="missele_cooldown" type="Timer" parent="."]
+
+[node name="wall_detector" type="RayCast2D" parent="."]
+position = Vector2(0, -11)
+target_position = Vector2(-16, 0)
+collision_mask = 2

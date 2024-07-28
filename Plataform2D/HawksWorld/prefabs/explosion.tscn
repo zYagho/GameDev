@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://bk8ejrejeb6v2"]
+
+[ext_resource type="Texture2D" uid="uid://f63fc4m8uv8y" path="res://assets/Mini FX, Items & UI/Effects/Explosion_Poof (16 x 16).png" id="1_1otj7"]
+[ext_resource type="Script" path="res://scripts/explosion.gd" id="2_mo6f8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o02g"]
+atlas = ExtResource("1_1otj7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mteoe"]
+atlas = ExtResource("1_1otj7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liago"]
+atlas = ExtResource("1_1otj7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk2y4"]
+atlas = ExtResource("1_1otj7")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on70a"]
+atlas = ExtResource("1_1otj7")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj6s2"]
+atlas = ExtResource("1_1otj7")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxg3l"]
+atlas = ExtResource("1_1otj7")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttuif"]
+atlas = ExtResource("1_1otj7")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_isweu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0o02g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mteoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_liago")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk2y4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on70a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj6s2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxg3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttuif")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="explosion" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_isweu")
+frame = 7
+frame_progress = 1.0
+script = ExtResource("2_mo6f8")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

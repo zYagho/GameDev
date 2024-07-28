@@ -1,0 +1,140 @@
+[gd_scene load_steps=19 format=3 uid="uid://buf3yfh31weja"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_tu6ol"]
+[ext_resource type="Texture2D" uid="uid://tct0c1wsm3sk" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Hurt (32 x 32).png" id="1_wt8wj"]
+[ext_resource type="Texture2D" uid="uid://bj6oud42kl3tw" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Idle (32 x 32).png" id="2_s5fsm"]
+[ext_resource type="Texture2D" uid="uid://cltr2aroxchq6" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Jumping (32 x 32).png" id="3_n0uxq"]
+[ext_resource type="Texture2D" uid="uid://c4vapeofunohm" path="res://assets/Sprite Pack 2/2 - Mr. Mochi/Running (32 x 32).png" id="4_h1cm2"]
+[ext_resource type="AudioStream" uid="uid://cajn3lokc31kd" path="res://sounds/jump.wav" id="6_snmpa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10ivq"]
+atlas = ExtResource("1_wt8wj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ldos"]
+atlas = ExtResource("2_s5fsm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1w51"]
+atlas = ExtResource("2_s5fsm")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o5pw"]
+atlas = ExtResource("3_n0uxq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwe84"]
+atlas = ExtResource("4_h1cm2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qhxq"]
+atlas = ExtResource("4_h1cm2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnld6"]
+atlas = ExtResource("4_h1cm2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0g7d"]
+atlas = ExtResource("4_h1cm2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1dfvo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10ivq")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ldos")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1w51")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5o5pw")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwe84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qhxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnld6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0g7d")
+}],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55ejl"]
+size = Vector2(12, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ares2"]
+size = Vector2(16, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsomq"]
+size = Vector2(12, 4.5)
+
+[node name="player" type="CharacterBody2D"]
+collision_mask = 94
+script = ExtResource("1_tu6ol")
+
+[node name="animator" type="AnimationPlayer" parent="."]
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_1dfvo")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_55ejl")
+
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 4
+
+[node name="collision" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_ares2")
+debug_color = Color(0.845546, 0.293883, 0.609051, 0.42)
+
+[node name="remote" type="RemoteTransform2D" parent="."]
+
+[node name="head_collider" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 64
+
+[node name="collision" type="CollisionShape2D" parent="head_collider"]
+position = Vector2(0, -15.75)
+shape = SubResource("RectangleShape2D_hsomq")
+debug_color = Color(0.617085, 0.534594, 0.0924821, 0.42)
+
+[node name="jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_snmpa")
+volume_db = -50.0
+
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_entered" from="head_collider" to="." method="_on_head_collider_body_entered"]

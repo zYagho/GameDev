@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmcy6opi8xj3w"]
+
+[ext_resource type="AudioStream" uid="uid://d1837wna7yn3h" path="res://sounds/break_box.wav" id="1_ox287"]
+
+[node name="detroy_box" type="AudioStreamPlayer"]
+stream = ExtResource("1_ox287")
+volume_db = -15.0

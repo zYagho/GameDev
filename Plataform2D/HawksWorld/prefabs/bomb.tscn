@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://gmxfvu1773jq"]
+
+[ext_resource type="Texture2D" uid="uid://c0bgvrovvttyl" path="res://assets/Sprite Pack 2/8 - Comrade Cheese Puff/Dropped_Bomb (8 x 8).png" id="1_1e37a"]
+
+[sub_resource type="GDScript" id="GDScript_3so7u"]
+script/source = "extends RigidBody2D
+
+const EXPLOSION = preload(\"res://prefabs/explosion.tscn\")
+
+
+func _on_body_entered(body):
+	visible = false
+	var explosion_instance = EXPLOSION.instantiate()
+	get_parent().add_child(explosion_instance)
+	explosion_instance.global_position = global_position
+	await explosion_instance.animation_finished
+	queue_free()
+	
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dn0is"]
+radius = 4.0
+
+[node name="bomb" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 3
+max_contacts_reported = 1
+contact_monitor = true
+script = SubResource("GDScript_3so7u")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_dn0is")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_1e37a")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,14 @@
+CollisionShape2D
+Area2D
+RayCast2D
+PlayerBase
+Node2D
+AnimatedSprite2D
+CharacterBody2D
+CharacterSword
+VisibleOnScreenEnabler2D
+Timer
+TileMap
+Node
+TextureRect
+ParallaxLayer
