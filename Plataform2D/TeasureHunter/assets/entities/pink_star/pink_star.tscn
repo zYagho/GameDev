@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://cxkohhwlf52qg"]
+[gd_scene load_steps=46 format=3 uid="uid://cxkohhwlf52qg"]
 
 [ext_resource type="PackedScene" uid="uid://bfjy8i3curhoi" path="res://assets/entities/components/base_enemy.tscn" id="1_bwwti"]
 [ext_resource type="Texture2D" uid="uid://cwdm6a6172nl6" path="res://assets/entities/pink_star/attack/attack_1.png" id="2_3rblc"]
@@ -19,10 +19,14 @@
 [ext_resource type="Texture2D" uid="uid://dfrl3hphofaxd" path="res://assets/entities/pink_star/attack_anticipation/3.png" id="8_h7b0o"]
 [ext_resource type="Texture2D" uid="uid://bp4qybux5u4oq" path="res://assets/entities/pink_star/idle/8.png" id="9_h8leu"]
 [ext_resource type="Texture2D" uid="uid://ugaqvvvjm7uy" path="res://assets/entities/pink_star/dead_hit/1.png" id="10_pjhxl"]
+[ext_resource type="Texture2D" uid="uid://p1rptat2wyn1" path="res://assets/entities/pink_star/dead_ground/1.png" id="10_wlss8"]
+[ext_resource type="Texture2D" uid="uid://ue7u186oab2c" path="res://assets/entities/pink_star/dead_ground/2.png" id="11_0pr0n"]
 [ext_resource type="Texture2D" uid="uid://4ia481mdbcb0" path="res://assets/entities/pink_star/jump/1.png" id="11_l20oo"]
 [ext_resource type="Texture2D" uid="uid://dci1b01cuplqv" path="res://assets/entities/pink_star/dead_hit/2.png" id="11_veelg"]
 [ext_resource type="Texture2D" uid="uid://km77nf8rkitx" path="res://assets/entities/pink_star/dead_hit/3.png" id="12_5ya11"]
+[ext_resource type="Texture2D" uid="uid://cch1wq0yuhwsx" path="res://assets/entities/pink_star/dead_ground/3.png" id="12_okqir"]
 [ext_resource type="Texture2D" uid="uid://p6nfkq8hauqa" path="res://assets/entities/pink_star/jump/2.png" id="12_spmnq"]
+[ext_resource type="Texture2D" uid="uid://c2rm6oql8ep18" path="res://assets/entities/pink_star/dead_ground/4.png" id="13_horgt"]
 [ext_resource type="Texture2D" uid="uid://catfkvad8wum3" path="res://assets/entities/pink_star/jump/3.png" id="13_l4xnu"]
 [ext_resource type="Texture2D" uid="uid://d1pji8c1fw1cg" path="res://assets/entities/pink_star/dead_hit/4.png" id="13_tqnwb"]
 [ext_resource type="Texture2D" uid="uid://b48ssj2brxh6k" path="res://assets/entities/pink_star/run/1.png" id="14_b5nnl"]
@@ -72,6 +76,23 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_anticipation",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_wlss8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_0pr0n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_okqir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_horgt")
+}],
+"loop": false,
+"name": &"dead_ground",
 "speed": 10.0
 }, {
 "frames": [{
@@ -156,7 +177,7 @@ animations = [{
 "texture": ExtResource("13_l4xnu")
 }],
 "loop": false,
-"name": &"jum",
+"name": &"jump",
 "speed": 10.0
 }, {
 "frames": [{
@@ -200,13 +221,11 @@ radius = 18.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_vxj1s"]
 radius = 18.0
 
-[node name="PinkStar" node_paths=PackedStringArray("_collision") instance=ExtResource("1_bwwti")]
+[node name="PinkStar" instance=ExtResource("1_bwwti")]
 collision_mask = 3
 script = ExtResource("2_ttrw7")
-_collision = NodePath("collision")
 _enemy_type = 2
 _pink_star_enemy = true
-_death_collision_offset = Vector2(0, -2)
 
 [node name="collision" parent="." index="0"]
 position = Vector2(0.5, 4)
@@ -214,10 +233,8 @@ shape = SubResource("RectangleShape2D_ls141")
 
 [node name="texture" parent="." index="1" node_paths=PackedStringArray("_attack_area_collision")]
 sprite_frames = SubResource("SpriteFrames_b4e71")
-animation = &"dead_hit"
+animation = &"jump"
 autoplay = "idle"
-frame = 3
-frame_progress = 1.0
 flip_h = true
 _attack_area_collision = NodePath("../attack_area/collision")
 _last_attack_frame = 3

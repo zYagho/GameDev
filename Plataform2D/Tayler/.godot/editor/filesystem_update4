@@ -1,5 +1,15 @@
+res://levels/world_1.tscn
+res://character/Mike/blue_character.tscn
+res://character/Mike/red_character.tscn
+res://character/red_character.tscn
+res://character/character_base.tscn
+res://character/character_base.gd
+res://levels/base_level.tscn
+res://character/blue_character.tscn
+res://character/blue_character.gd
+res://character/red_character.gd
 res://background/Background_Grassland/background.tscn
 res://terrain/Grassland/terrain.tscn
-res://levels/base_level.tscn
-res://levels/world_1.tscn
 res://character/Big Red/character.tscn
+res://character/Texture.gd
+res://character/texture_base.gd

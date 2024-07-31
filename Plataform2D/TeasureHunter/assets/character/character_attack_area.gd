@@ -8,6 +8,3 @@ func _on_body_entered(_body):
 	if _body is BaseEnemy:
 		_body.update_health(_attack_damage, get_parent())
 
-
-func _on_body_exited(body):
-	print("ola")

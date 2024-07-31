@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1722018675
+::res://::1722391029
 icon.svg::CompressedTexture2D::2859170883986595126::1721870563::1721870569::1::::<><>::
 ::res://background/::1721870430
 ::res://background/Background_autumn/::1721871904
@@ -10,14 +10,14 @@ icon.svg::CompressedTexture2D::2859170883986595126::1721870563::1721870569::1:::
 5 - Tree_row_BG_2.png::CompressedTexture2D::4760329756804891761::1717548710::1721871904::1::::<><>::
 6 - Distant_trees.png::CompressedTexture2D::1107172976894636758::1717548710::1721871904::1::::<><>::
 _Complete_static_BG_(288 x 208).png::CompressedTexture2D::5306605886309657253::1717548710::1721871904::1::::<><>::
-::res://background/Background_Grassland/::1721874378
+::res://background/Background_Grassland/::1722391107
 1 - Foreground_scenery.png::CompressedTexture2D::4829140647761339026::1717548710::1721871904::1::::<><>::
 2 - Hills.png::CompressedTexture2D::9203734494234306898::1717548710::1721871904::1::::<><>::
 3 - Cloud_cover_1.png::CompressedTexture2D::9011653120747992301::1717548710::1721871904::1::::<><>::
 4 - Cloud_cover_2.png::CompressedTexture2D::4398650759766224625::1717548710::1721871904::1::::<><>::
 5 - Sky_color.png::CompressedTexture2D::4790916045210952172::1717548710::1721871904::1::::<><>::
 background.gd::GDScript::-1::1721871138::0::1::::BackGround<>ParallaxBackground<>::
-background.tscn::PackedScene::9108713298181353165::1721874378::0::1::::<><>::res://background/Background_Grassland/background.gd<>uid://cai0xmr01ud3i::::res://background/Background_Grassland/5 - Sky_color.png<>uid://b3w0euqjxpcr6::::res://background/Background_Grassland/4 - Cloud_cover_2.png<>uid://d1nku0qo04822::::res://background/Background_Grassland/3 - Cloud_cover_1.png<>uid://d4emfr1phi6f3::::res://background/Background_Grassland/2 - Hills.png<>uid://ca2jigrhhfjm5::::res://background/Background_Grassland/1 - Foreground_scenery.png
+background.tscn::PackedScene::9108713298181353165::1722391107::0::1::::<><>::res://background/Background_Grassland/background.gd<>uid://cai0xmr01ud3i::::res://background/Background_Grassland/5 - Sky_color.png<>uid://b3w0euqjxpcr6::::res://background/Background_Grassland/4 - Cloud_cover_2.png<>uid://d1nku0qo04822::::res://background/Background_Grassland/3 - Cloud_cover_1.png<>uid://d4emfr1phi6f3::::res://background/Background_Grassland/2 - Hills.png<>uid://ca2jigrhhfjm5::::res://background/Background_Grassland/1 - Foreground_scenery.png
 _Complete_static_BG_(288 x 208).png::CompressedTexture2D::1107924727865278660::1717548710::1721871904::1::::<><>::
 ::res://background/Background_tropics/::1721871904
 1 - Waters_version_1.png::CompressedTexture2D::3055541386167006939::1717548710::1721871904::1::::<><>::
@@ -31,11 +31,18 @@ _Complete_static_BG_(288 x 208).png::CompressedTexture2D::5570902857439488203::1
 2 - Smaller_mountains.png::CompressedTexture2D::1740789881663686972::1717548710::1721871904::1::::<><>::
 3 - Big_mountain_BG.png::CompressedTexture2D::3301583768642323948::1717548710::1721871904::1::::<><>::
 _Complete_static_BG_(288 x 208).png::CompressedTexture2D::436969526411219325::1717548710::1721871904::1::::<><>::
-::res://character/::1721870489
-::res://character/Big Red/::1721874432
+::res://character/::1722391277
+blue_character.tscn::PackedScene::1809173620471776568::1722391108::0::1::::<><>::uid://d1b4bxr4kvsp3::::res://character/character_base.tscn<>res://character/blue_character.gd<>uid://tct0c1wsm3sk::::res://character/Mr. Mochi/Hurt (32 x 32).png<>uid://bj6oud42kl3tw::::res://character/Mr. Mochi/Idle (32 x 32).png<>uid://cltr2aroxchq6::::res://character/Mr. Mochi/Jumping (32 x 32).png<>uid://c4vapeofunohm::::res://character/Mr. Mochi/Running (32 x 32).png
+character_base.tscn::PackedScene::8988000177636903050::1722391303::0::1::::<><>::res://character/character_base.gd<>res://character/Texture.gd
+red_character.tscn::PackedScene::514806934548988111::1722391108::0::1::::<><>::uid://d1b4bxr4kvsp3::::res://character/character_base.tscn<>uid://b4wtacoskydf5::::res://character/Big Red/Idle_(32 x 32).png<>res://character/red_character.gd<>uid://r3mwqglc3vsu::::res://character/Big Red/Jumping_&_Falling_(32 x 32).png<>uid://v4q8aew0n8y6::::res://character/Big Red/Landed_(32 x 32).png<>uid://cgrfd6k5j1bbd::::res://character/Big Red/Running_(32 x 32).png
+character_base.gd::GDScript::-1::1722391242::0::1::::CharacterBase<>CharacterBody2D<>::
+blue_character.gd::GDScript::-1::1722391215::0::1::::<>CharacterBase<>::
+red_character.gd::GDScript::-1::1722391066::0::1::::<>CharacterBase<>::
+Texture.gd::GDScript::-1::1722391277::0::1::::CharacterBaseTexture<>AnimatedSprite2D<>::
+::res://character/Big Red/::1722391108
 Blocking_(32 x 32).png::CompressedTexture2D::5008813035261084253::1593530668::1721871904::1::::<><>::
 character.gd::GDScript::-1::1721874282::0::1::::<>CharacterBody2D<>::
-character.tscn::PackedScene::4908905305442874284::1721874432::0::1::::<><>::uid://b4wtacoskydf5::::res://character/Big Red/Idle_(32 x 32).png<>res://character/Big Red/character.gd<>uid://lnt1t7nhdke3::::res://character/Big Red/Hurt_(32 x 32).png<>uid://r3mwqglc3vsu::::res://character/Big Red/Jumping_&_Falling_(32 x 32).png<>uid://v4q8aew0n8y6::::res://character/Big Red/Landed_(32 x 32).png<>uid://cgrfd6k5j1bbd::::res://character/Big Red/Running_(32 x 32).png<>res://character/Big Red/texture.gd
+character.tscn::PackedScene::4908905305442874284::1722391108::0::1::::<><>::uid://b4wtacoskydf5::::res://character/Big Red/Idle_(32 x 32).png<>res://character/Big Red/character.gd<>uid://lnt1t7nhdke3::::res://character/Big Red/Hurt_(32 x 32).png<>uid://r3mwqglc3vsu::::res://character/Big Red/Jumping_&_Falling_(32 x 32).png<>uid://v4q8aew0n8y6::::res://character/Big Red/Landed_(32 x 32).png<>uid://cgrfd6k5j1bbd::::res://character/Big Red/Running_(32 x 32).png<>res://character/Big Red/texture.gd
 Facing_Player_(32 x 32).png::CompressedTexture2D::578112577416136729::1593530504::1721871904::1::::<><>::
 Hurt_(32 x 32).png::CompressedTexture2D::800115292302761972::1593530710::1721871904::1::::<><>::
 Idle_(32 x 32).png::CompressedTexture2D::4468467210154028148::1593530588::1721871904::1::::<><>::
@@ -57,12 +64,17 @@ Lazer_shot (16 x 16).png::CompressedTexture2D::5537746142033130947::1637862412::
 Run (16 x 16).png::CompressedTexture2D::6998024582693568530::1637862218::1721871904::1::::<><>::
 Run_shooting  (16 x 16).png::CompressedTexture2D::4839321726220748391::1637862372::1721871904::1::::<><>::
 Using_computer (16 x 16).png::CompressedTexture2D::1170098196661618902::1637862292::1721871904::1::::<><>::
-::res://character/Mike/::1721871904
+::res://character/Mike/::1722389071
 1 - Agent_Mike_Bullet (16 x 16).png::CompressedTexture2D::3404844467036498127::1592839200::1721871904::1::::<><>::
 1 - Agent_Mike_Hurt (32 x 32).png::CompressedTexture2D::7764034757830435370::1592839140::1721871904::1::::<><>::
 1 - Agent_Mike_Idle (32 x 32).png::CompressedTexture2D::2628207366006794379::1592838804::1721871904::1::::<><>::
 1 - Agent_Mike_Jump_&_Falling (32 x 32).png::CompressedTexture2D::1233651990266055776::1592839100::1721871904::1::::<><>::
 1 - Agent_Mike_Running (32 x 32).png::CompressedTexture2D::4757753761044771913::1592838994::1721871904::1::::<><>::
+::res://character/Mr. Mochi/::1722390711
+Hurt (32 x 32).png::CompressedTexture2D::1338915198576673182::1717548726::1722390711::1::::<><>::
+Idle (32 x 32).png::CompressedTexture2D::3083001944198037668::1717548726::1722390711::1::::<><>::
+Jumping (32 x 32).png::CompressedTexture2D::5585222256972750171::1717548726::1722390711::1::::<><>::
+Running (32 x 32).png::CompressedTexture2D::6851696784608063610::1717548726::1722390711::1::::<><>::
 ::res://collectables/::1721866059
 ::res://collectables/Food Items/::1721871905
 Bottled_Drinks (16 x 16).png::CompressedTexture2D::6223955302591140712::1717548722::1721871904::1::::<><>::
@@ -147,9 +159,9 @@ Idle (16 x 16).png::CompressedTexture2D::5691806124150482316::1637862760::172187
 Moving (16 x 16).png::CompressedTexture2D::3434633336726304746::1637862784::1721871904::1::::<><>::
 Shooting (16 x 16).png::CompressedTexture2D::1202448563390951227::1637862820::1721871904::1::::<><>::
 Yellow_bullet (16 x 16).png::CompressedTexture2D::5558476679493857728::1637862844::1721871904::1::::<><>::
-::res://levels/::1721874379
-base_level.tscn::PackedScene::7245546241324416022::1721874379::0::1::::<><>::uid://d21lga4rkq8jx::::res://background/Background_Grassland/background.tscn<>uid://2k0hjrplsd6i::::res://terrain/Grassland/terrain.tscn<>uid://cb657n42s4fdk::::res://character/Big Red/character.tscn
-world_1.tscn::PackedScene::2746162968249145697::1721874379::0::1::::<><>::uid://dbh2c80babpow::::res://levels/base_level.tscn
+::res://levels/::1722391108
+base_level.tscn::PackedScene::7245546241324416022::1722391108::0::1::::<><>::uid://d21lga4rkq8jx::::res://background/Background_Grassland/background.tscn<>uid://2k0hjrplsd6i::::res://terrain/Grassland/terrain.tscn<>uid://hlm2baufsw2b::::res://character/red_character.tscn<>uid://01m3b647fd6g::::res://character/blue_character.tscn
+world_1.tscn::PackedScene::2746162968249145697::1722391108::0::1::::<><>::uid://dbh2c80babpow::::res://levels/base_level.tscn
 ::res://Mini FX, Items & UI/::1721870471
 LICENSE.txt::TextFile::-1::1717548722::0::1::::<><>::
 ::res://Mini FX, Items & UI/Common Pick-ups/::1721871904
@@ -234,11 +246,11 @@ _Blocks (16 x 16).png::CompressedTexture2D::8278437489222109009::1637863180::172
 ::res://terrain/Autumn Forest/::1721871904
 Autumn_entities (16 x 16).png::CompressedTexture2D::3230589341881640082::1717548710::1721871904::1::::<><>::
 Terrain (16 x 16).png::CompressedTexture2D::6404123645474344867::1717548710::1721871904::1::::<><>::
-::res://terrain/Grassland/::1721874379
+::res://terrain/Grassland/::1722391108
 Extra_plants (16 x 16).png::CompressedTexture2D::2130950340050515779::1717548710::1721871904::1::::<><>::
 Grassland_entities (16 x 16).png::CompressedTexture2D::1098845306964422301::1717548710::1721871904::1::::<><>::
 Terrain (16 x 16).png::CompressedTexture2D::8619672260357090976::1717548710::1721871904::1::::<><>::
-terrain.tscn::PackedScene::1917273480812737426::1721874379::0::1::::<><>::uid://du2o0iwfiusii::::res://terrain/Grassland/Terrain (16 x 16).png
+terrain.tscn::PackedScene::1917273480812737426::1722391108::0::1::::<><>::uid://du2o0iwfiusii::::res://terrain/Grassland/Terrain (16 x 16).png
 ::res://terrain/Misc. universal tiles/::1721871904
 Bubbling_Oil_frames (16 x 32).png::CompressedTexture2D::2530342820097711041::1717548710::1721871904::1::::<><>::
 Flowers (16 x 16).png::CompressedTexture2D::2372534328613765896::1717548710::1721871904::1::::<><>::

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbh2c80babpow"]
+[gd_scene load_steps=5 format=3 uid="uid://dbh2c80babpow"]
 
 [ext_resource type="PackedScene" uid="uid://d21lga4rkq8jx" path="res://background/Background_Grassland/background.tscn" id="1_57ff5"]
 [ext_resource type="PackedScene" uid="uid://2k0hjrplsd6i" path="res://terrain/Grassland/terrain.tscn" id="2_2ucug"]
-[ext_resource type="PackedScene" uid="uid://cb657n42s4fdk" path="res://character/Big Red/character.tscn" id="3_jmetg"]
+[ext_resource type="PackedScene" uid="uid://hlm2baufsw2b" path="res://character/red_character.tscn" id="3_btsi7"]
+[ext_resource type="PackedScene" uid="uid://01m3b647fd6g" path="res://character/blue_character.tscn" id="4_jqk7s"]
 
 [node name="base_level" type="Node2D"]
 
@@ -10,4 +11,6 @@
 
 [node name="terrain" parent="." instance=ExtResource("2_2ucug")]
 
-[node name="character" parent="." instance=ExtResource("3_jmetg")]
+[node name="RedCharacter" parent="." instance=ExtResource("3_btsi7")]
+
+[node name="BlueCharacter" parent="." instance=ExtResource("4_jqk7s")]

@@ -6,6 +6,4 @@ class_name  EnemyAtacckArea
 
 func _on_body_entered(_body) -> void:
 	if _body is PlayerBase:
-		#_body.update_health()
-		print("causar dano")
-		pass
+		_body.update_health(_attack_damage, get_parent())

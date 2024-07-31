@@ -6,21 +6,24 @@ var _on_floor: bool = false
 var _direction: Vector2 = Vector2.ZERO
 var _player_in_range: PlayerBase = null
 var _is_alive: bool = true
+var _on_knockback: bool = false
+var _can_play_deadground: bool = true
 
 enum _types {STATIC = 0, CHASE = 1, WANDER = 2}
 
 @export_category("objects")
 @export var _enemy_texture: EnemyTexture
 @export var _floor_detection: RayCast2D
-@export var _collision: CollisionShape2D
+@export var _knockback_timer: Timer
 
 @export_category("variables")
 @export var _enemy_type: _types
 @export var _move_speed: float = 128
-@export var _knockback_speed: float = 256.0 
+@export var _knockback_speed: float = 128
 @export var _pink_star_enemy: bool = false
 @export var _enemy_health: int = 5
-@export var _death_collision_offset: Vector2
+@export var _knockback_timer_hit: float = 0.4
+@export var _dead_knockback_timer: float = 0.4
 
 func _ready() -> void:
 	_direction = [Vector2(-1, 0), Vector2(1,0)].pick_random()
@@ -32,11 +35,17 @@ func _ready() -> void:
 			_enemy_texture.flip_h = false
 	_update_direction()
 	
+func _process(_delta)-> void:
+	if _on_knockback:
+		move_and_slide()
+		return
+		
 func _physics_process(_delta) ->void:
 	
 	_verticalMovement(_delta)
 	
 	if !_is_alive:
+		move_and_slide()
 		return
 	
 	if is_instance_valid(_player_in_range):
@@ -61,12 +70,19 @@ func _wandering() -> void:
 			return
 	
 	#Se ele chegou aqui é porque atingiu o final da plataforma
-	_update_direction()
-	velocity.x = 0
+	if is_on_floor():
+		_update_direction()
+		velocity.x = 0
 	
 func _verticalMovement(_delta: float) -> void:
 	
 	if is_on_floor():
+		if !_is_alive:
+			if _can_play_deadground:
+				_can_play_deadground = false
+				_enemy_texture.action_animate("dead_ground")
+			velocity.x = 0
+			return
 		if  !_on_floor:
 			_enemy_texture.action_animate("land")
 			_on_floor = true
@@ -101,15 +117,15 @@ func _attack():
 	
 	
 func _kill() -> void:
-	_collision.position = _death_collision_offset
 	_is_alive = false
 	_enemy_texture.action_animate("dead_hit")
 	
-func _knockback(_entity) -> void:
-	var _direction: Vector2 = global_position.direction_to(_entity.global_position)
-	velocity.x = _direction.x * _knockback_speed
+func _knockback(_entity: PlayerBase) -> void:
+	var _knockbackdirection: Vector2 = _entity.global_position.direction_to(global_position)
+	velocity.x = _knockbackdirection.x * _knockback_speed
 	velocity.y = _knockback_speed * (-1)
-	move_and_slide()
+	_on_knockback = true
+	
 	
 func update_health(_attack_damage: int, _entity) -> void:
 	if !_is_alive:
@@ -118,7 +134,13 @@ func update_health(_attack_damage: int, _entity) -> void:
 	
 	_knockback(_entity)
 	if _enemy_health <= 0:
+		_knockback_timer.start(_dead_knockback_timer)
 		_kill()
 		return
 		
+	_knockback_timer.start(_knockback_timer_hit)
 	_enemy_texture.action_animate("hit")
+
+
+func _on_knockback_timer_timeout():
+	_on_knockback = false

@@ -1,0 +1,98 @@
+[gd_scene load_steps=16 format=3 uid="uid://01m3b647fd6g"]
+
+[ext_resource type="PackedScene" uid="uid://d1b4bxr4kvsp3" path="res://character/character_base.tscn" id="1_d8eg7"]
+[ext_resource type="Script" path="res://character/blue_character.gd" id="2_8gbo1"]
+[ext_resource type="Texture2D" uid="uid://tct0c1wsm3sk" path="res://character/Mr. Mochi/Hurt (32 x 32).png" id="3_3tear"]
+[ext_resource type="Texture2D" uid="uid://bj6oud42kl3tw" path="res://character/Mr. Mochi/Idle (32 x 32).png" id="4_niale"]
+[ext_resource type="Texture2D" uid="uid://cltr2aroxchq6" path="res://character/Mr. Mochi/Jumping (32 x 32).png" id="5_3mg4s"]
+[ext_resource type="Texture2D" uid="uid://c4vapeofunohm" path="res://character/Mr. Mochi/Running (32 x 32).png" id="6_m5ir6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37px5"]
+atlas = ExtResource("3_3tear")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkvfe"]
+atlas = ExtResource("4_niale")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0a1k4"]
+atlas = ExtResource("4_niale")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at6qx"]
+atlas = ExtResource("6_m5ir6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlfg7"]
+atlas = ExtResource("6_m5ir6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l56m7"]
+atlas = ExtResource("6_m5ir6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75hn8"]
+atlas = ExtResource("6_m5ir6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_egtej"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37px5")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkvfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0a1k4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_3mg4s")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at6qx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlfg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l56m7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75hn8")
+}],
+"loop": true,
+"name": &"run",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7mo3"]
+size = Vector2(14, 13)
+
+[node name="BlueCharacter" instance=ExtResource("1_d8eg7")]
+script = ExtResource("2_8gbo1")
+
+[node name="Texture" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_egtej")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Collision" parent="." index="1"]
+position = Vector2(0, 8.5)
+shape = SubResource("RectangleShape2D_n7mo3")
