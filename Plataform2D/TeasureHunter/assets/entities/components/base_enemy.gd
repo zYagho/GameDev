@@ -20,7 +20,7 @@ enum _types {STATIC = 0, CHASE = 1, WANDER = 2}
 @export var _enemy_type: _types
 @export var _move_speed: float = 128
 @export var _knockback_speed: float = 128
-@export var _pink_star_enemy: bool = false
+@export var is_pink_star: bool = false
 @export var _enemy_health: int = 5
 @export var _knockback_timer_hit: float = 0.4
 @export var _dead_knockback_timer: float = 0.4
@@ -28,7 +28,7 @@ enum _types {STATIC = 0, CHASE = 1, WANDER = 2}
 func _ready() -> void:
 	_direction = [Vector2(-1, 0), Vector2(1,0)].pick_random()
 	
-	if _pink_star_enemy:
+	if is_pink_star:
 		if _direction.x > 0:
 			_enemy_texture.flip_h = true
 		if _direction.x < 0:
@@ -94,7 +94,7 @@ func _verticalMovement(_delta: float) -> void:
 
 func _update_direction() -> void:
 	_direction.x = - _direction.x
-	if _pink_star_enemy:
+	if is_pink_star:
 		if _direction.x > 0:
 			_enemy_texture.flip_h = true
 		if _direction.x < 0:

@@ -1,11 +1,9 @@
-res://assets/character/player.tscn
-res://assets/entities/components/base_enemy.gd
-res://assets/character/character_attack_area.gd
-res://assets/entities/components/base_enemy.tscn
-res://levels/island_level.tscn
 res://assets/entities/pink_star/pink_star.tscn
+res://assets/entities/components/enemy_texture.gd
+res://levels/island_level.tscn
+res://assets/entities/components/base_enemy.tscn
+res://assets/character/player.tscn
 res://assets/background/background.tscn
 res://levels/base_level.tscn
-res://assets/entities/components/enemy_attack_area.gd
-res://assets/character/player.gd
-res://assets/entities/pink_star/pink_star.gd
+res://assets/entities/components/base_enemy.gd
+res://assets/visual_effects/pink_star_attack/pink_star_attack.tscn

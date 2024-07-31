@@ -225,7 +225,7 @@ radius = 18.0
 collision_mask = 3
 script = ExtResource("2_ttrw7")
 _enemy_type = 2
-_pink_star_enemy = true
+is_pink_star = true
 
 [node name="collision" parent="." index="0"]
 position = Vector2(0.5, 4)
@@ -233,11 +233,15 @@ shape = SubResource("RectangleShape2D_ls141")
 
 [node name="texture" parent="." index="1" node_paths=PackedStringArray("_attack_area_collision")]
 sprite_frames = SubResource("SpriteFrames_b4e71")
-animation = &"jump"
+animation = &"attack"
 autoplay = "idle"
 flip_h = true
 _attack_area_collision = NodePath("../attack_area/collision")
 _last_attack_frame = 3
+_initial_run_frame = 2
+_last_run_frame = 5
+_x_attack_offset = 8.0
+_y_attack_offset = 8.0
 
 [node name="floorDetection" parent="." index="2"]
 position = Vector2(12, 12)
