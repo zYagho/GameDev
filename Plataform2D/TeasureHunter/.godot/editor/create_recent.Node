@@ -1,3 +1,4 @@
+TextureRect
 Timer
 CollisionShape2D
 Area2D
@@ -10,5 +11,4 @@ CharacterSword
 VisibleOnScreenEnabler2D
 TileMap
 Node
-TextureRect
 ParallaxLayer
