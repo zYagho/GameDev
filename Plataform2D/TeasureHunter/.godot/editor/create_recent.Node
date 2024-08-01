@@ -1,4 +1,6 @@
 TextureRect
+Button
+GridContainer
 Timer
 CollisionShape2D
 Area2D
@@ -10,5 +12,3 @@ CharacterBody2D
 CharacterSword
 VisibleOnScreenEnabler2D
 TileMap
-Node
-ParallaxLayer

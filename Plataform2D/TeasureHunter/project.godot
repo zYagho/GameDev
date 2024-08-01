@@ -35,6 +35,7 @@ folder_colors={
 "res://assets/collectables/": "orange",
 "res://assets/entities/": "blue",
 "res://assets/interactables/": "purple",
+"res://assets/interface/": "red",
 "res://assets/terrain/": "pink",
 "res://assets/throwables/": "teal",
 "res://assets/visual_effects/": "gray"
