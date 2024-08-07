@@ -1,6 +1,8 @@
+res://assets/visual_effects/coin_effect
+res://assets/visual_effects/components
+res://assets/collectables/components
 res://assets/interface/inventory
 res://assets/visual_effects/pink_star_attack
-res://assets/visual_effects/components
 res://assets/entities/components
 res://assets/entities/pink_star
 res://assets/visual_effects/sword/attack_3
@@ -13,7 +15,6 @@ res://managements
 res://assets/visual_effects/dust_particles/run
 res://assets/visual_effects/dust_particles/jump
 res://assets/visual_effects/dust_particles/fall
-res://assets/collectables/components
 res://assets/collectables/sword
 res://assets/character
 res://levels

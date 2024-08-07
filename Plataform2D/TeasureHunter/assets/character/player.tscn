@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://36evued3nhec"]
+[gd_scene load_steps=75 format=3 uid="uid://36evued3nhec"]
 
 [ext_resource type="Script" path="res://assets/character/player.gd" id="1_1et2o"]
 [ext_resource type="Texture2D" uid="uid://c5qhrk0rbvm7f" path="res://assets/character/without_sword/idle/1.png" id="1_qnfrn"]
@@ -70,6 +70,7 @@
 [ext_resource type="Texture2D" uid="uid://dmvum0lyssb06" path="res://assets/character/with_sword/throw_sword/2.png" id="51_obq7w"]
 [ext_resource type="Texture2D" uid="uid://bev0dhx6nack3" path="res://assets/character/with_sword/throw_sword/3.png" id="52_a8xlo"]
 [ext_resource type="Script" path="res://assets/character/character_attack_area.gd" id="54_tstyv"]
+[ext_resource type="Script" path="res://assets/character/character_inventory.gd" id="71_yra8h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_buy8v"]
 animations = [{
@@ -387,7 +388,7 @@ size = Vector2(14.5, 23)
 [sub_resource type="CircleShape2D" id="CircleShape2D_pluya"]
 radius = 16.0
 
-[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("_texture", "_attack_combo", "_knockback_timer", "_collision")]
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("_texture", "_attack_combo", "_knockback_timer", "_collision", "_inventory")]
 position = Vector2(-1, 0)
 collision_mask = 6
 script = ExtResource("1_1et2o")
@@ -395,6 +396,7 @@ _texture = NodePath("texture")
 _attack_combo = NodePath("attack_combo")
 _knockback_timer = NodePath("knockback_timer")
 _collision = NodePath("collision")
+_inventory = NodePath("CharacterInventory")
 
 [node name="texture" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("_player", "_attack_area_collision")]
 sprite_frames = SubResource("SpriteFrames_buy8v")
@@ -422,6 +424,9 @@ disabled = true
 [node name="knockback_timer" type="Timer" parent="."]
 wait_time = 0.4
 one_shot = true
+
+[node name="CharacterInventory" type="Node" parent="."]
+script = ExtResource("71_yra8h")
 
 [connection signal="animation_finished" from="texture" to="texture" method="_on_animation_finished"]
 [connection signal="frame_changed" from="texture" to="texture" method="_on_frame_changed"]

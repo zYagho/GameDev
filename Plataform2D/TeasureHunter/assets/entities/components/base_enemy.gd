@@ -1,6 +1,9 @@
 extends CharacterBody2D
 class_name BaseEnemy
 
+const _COLLECTABLE_ITEM: PackedScene = preload("res://assets/collectables/components/collectable_item.tscn")
+
+
 var _gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var _on_floor: bool = false
 var _direction: Vector2 = Vector2.ZERO
@@ -10,6 +13,8 @@ var _on_knockback: bool = false
 var _can_play_deadground: bool = true
 
 enum _types {STATIC = 0, CHASE = 1, WANDER = 2}
+
+var _drop_item_list: Dictionary = {}
 
 @export_category("objects")
 @export var _enemy_texture: EnemyTexture
@@ -27,12 +32,7 @@ enum _types {STATIC = 0, CHASE = 1, WANDER = 2}
 
 func _ready() -> void:
 	_direction = [Vector2(-1, 0), Vector2(1,0)].pick_random()
-	
-	if is_pink_star:
-		if _direction.x > 0:
-			_enemy_texture.flip_h = true
-		if _direction.x < 0:
-			_enemy_texture.flip_h = false
+	_drop_item_list = _get_drop_items()
 	_update_direction()
 	
 func _process(_delta)-> void:
@@ -62,6 +62,9 @@ func _physics_process(_delta) ->void:
 	move_and_slide()
 	
 	_enemy_texture.animate(velocity)
+	
+func _get_drop_items() -> Dictionary:
+	return {}
 	
 func _wandering() -> void:
 	if _floor_detection.is_colliding():
@@ -119,6 +122,18 @@ func _attack():
 func _kill() -> void:
 	_is_alive = false
 	_enemy_texture.action_animate("dead_hit")
+	
+	for _item in _drop_item_list:
+		var _item_spawn_probability: float = _drop_item_list[_item]["spawn_probability"]
+		var _rng: float = randf()
+		
+		if _rng < _item_spawn_probability:
+			_drop_item(_item, _drop_item_list[_item])
+			
+
+	
+func _drop_item(_item_name: String, _item_data: Dictionary) -> void:
+	pass
 	
 func _knockback(_entity: PlayerBase) -> void:
 	var _knockbackdirection: Vector2 = _entity.global_position.direction_to(global_position)

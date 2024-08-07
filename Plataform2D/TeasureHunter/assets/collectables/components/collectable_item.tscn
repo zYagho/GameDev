@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bj8w8d13vjxtw"]
+
+[ext_resource type="Script" path="res://assets/collectables/components/collectable_item.gd" id="1_5xiwh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7ea5x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g6nfw"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tcpeg"]
+radius = 12.0
+
+[node name="BaseCollectableItem" type="RigidBody2D" node_paths=PackedStringArray("_item_sprite")]
+collision_layer = 2
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_7ea5x")
+script = ExtResource("1_5xiwh")
+_item_sprite = NodePath("Texture")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g6nfw")
+
+[node name="Texture" type="Sprite2D" parent="."]
+
+[node name="CollectableArea" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="CollectableArea"]
+shape = SubResource("CircleShape2D_tcpeg")
+
+[connection signal="body_entered" from="CollectableArea" to="." method="_on_collectable_area_body_entered"]

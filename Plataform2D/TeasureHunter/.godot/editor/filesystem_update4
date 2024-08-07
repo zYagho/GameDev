@@ -1,8 +1,9 @@
-res://levels/island_level.tscn
-res://assets/entities/components/base_enemy.tscn
-res://assets/entities/pink_star/pink_star.tscn
 res://assets/character/player.tscn
+res://assets/character/character_inventory.gd
+res://assets/character/player.gd
+res://levels/island_level.tscn
 res://assets/interface/inventory/inventory.tscn
 res://assets/interface/inventory/inventory_slot.tscn
-res://assets/interface/inventory/inventory.gd
-res://assets/interface/inventory/inventory_slot.gd
+res://assets/collectables/components/collectable_item.tscn
+res://assets/visual_effects/coin_effect/coin_effect.tscn
+res://assets/entities/pink_star/pink_star.tscn

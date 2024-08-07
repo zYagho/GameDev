@@ -33,6 +33,7 @@ folder_colors={
 "res://assets/background/": "red",
 "res://assets/character/": "green",
 "res://assets/collectables/": "orange",
+"res://assets/collectables_by_drop/": "teal",
 "res://assets/entities/": "blue",
 "res://assets/interactables/": "purple",
 "res://assets/interface/": "red",

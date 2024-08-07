@@ -24,6 +24,7 @@ var _can_play_deadground: bool = true
 @export var _attack_combo: Timer
 @export var _knockback_timer: Timer
 @export var _collision: CollisionShape2D 
+@export var _inventory: CharacterInventory
 
 func _process(_delta) -> void:
 	if _on_knockback:
@@ -148,7 +149,7 @@ func update_health(_value: int, _entity) -> void:
 	
 	_texture.action_animation("hit")
 
-func _knockback(_entity: BaseEnemy) -> void:
+func _knockback(_entity) -> void:
 	var _knockback_direction: Vector2 = _entity.global_position.direction_to(global_position)
 	velocity.x = _knockback_direction.x * _knockback_speed
 	velocity.y = -1 * _knockback_speed
@@ -159,3 +160,6 @@ func _on_knockback_timer_timeout() -> void:
 	
 func is_player_alive() -> bool:
 	return _is_alive
+
+func collect_item(_item: Dictionary) -> void:
+	_inventory.add_item(_item)	

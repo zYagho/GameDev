@@ -8,7 +8,6 @@ var _suffix: String = ""
 @export var _player: PlayerBase
 @export var _attack_area_collision: CollisionShape2D
 
-
 func animate(_velocity: Vector2) -> void:
 	
 	if _is_on_action:

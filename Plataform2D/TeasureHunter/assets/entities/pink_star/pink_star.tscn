@@ -226,6 +226,8 @@ collision_mask = 3
 script = ExtResource("2_ttrw7")
 _enemy_type = 2
 is_pink_star = true
+_enemy_health = 2
+_dead_knockback_timer = 0.2
 
 [node name="collision" parent="." index="0"]
 position = Vector2(0.5, 4)
